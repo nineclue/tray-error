@@ -18,6 +18,12 @@ function menuHandler(id) {
         default:
             url = "https://google.com";
     }
+    // no errors 
+    // window.alert("Let's open : ".concat(url));
+    // console.log("Let's open : ".concat(url));
+
+    // errors
+    // window.location.href = url;
     window.location.replace(url);
 }
 
@@ -28,16 +34,9 @@ const tauriMenu = await menu.Menu.new({
     ],
 });
 
-function trayHandler(e) {
-    console.log(e);
-}
-
 const options = {
     icon: tauriIcon,
-    action: trayHandler,
     menu: tauriMenu,
 };
 
-console.log("calling trayicon!");
-const t = await tray.TrayIcon.new(options);
-console.log("called trayicon!");
+tray.TrayIcon.new(options);
